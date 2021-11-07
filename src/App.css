@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-family: "Open Sans";
+}
+
+.App {
+  background-color: #141414;
+}
+.App a {
+  text-decoration: none;
+  background-color: transparent;
+  color: black;
+}
+.App .rows {
+  margin-top: -20px;
+}
+
+/*# sourceMappingURL=App.css.map */
