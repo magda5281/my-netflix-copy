@@ -1,0 +1,40 @@
+.movieInfo {
+
+  padding: 10px;
+  background-color: #141414;
+  border-radius: 0 0 4px 4px;
+  display: none;
+
+  &.hidden {
+    display: none
+  }
+
+  &.visible {
+    display: block
+  }
+
+
+  &__IconsWrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    padding: 5px 0;
+    font-size: 0.5rem;
+  }
+
+  &__rating {
+    color: green;
+    font-size: 0.4rem;
+    padding: 5px 0;
+  }
+
+  &__overview {
+    font-size: 0.3rem;
+    color: white;
+    padding: 5px 0;
+    font-weight: 400;
+  }
+}
+

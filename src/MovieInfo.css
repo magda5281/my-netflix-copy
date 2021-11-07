@@ -1,25 +1,30 @@
 .movieInfo {
-  border: 5px solid green;
   padding: 10px;
   background-color: #141414;
-  border-radius: 4px;
-  z-index: 1;
+  border-radius: 0 0 4px 4px;
+  display: none;
+}
+.movieInfo.hidden {
+  display: none;
+}
+.movieInfo.visible {
+  display: block;
 }
 .movieInfo__IconsWrap {
   display: flex;
   align-items: center;
 }
 .movieInfo__title {
-  padding: 10px 0;
-  font-size: 0.7rem;
+  padding: 5px 0;
+  font-size: 0.5rem;
 }
 .movieInfo__rating {
   color: green;
-  font-size: 0.8rem;
+  font-size: 0.4rem;
   padding: 5px 0;
 }
 .movieInfo__overview {
-  font-size: 0.5rem;
+  font-size: 0.3rem;
   color: white;
   padding: 5px 0;
   font-weight: 400;

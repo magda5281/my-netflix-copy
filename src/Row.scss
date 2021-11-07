@@ -5,53 +5,55 @@
   font-family: sans-serif;
   color: rgb(229, 229, 229);
 
-  &__title{
+  &__title {
     padding-top: 30px;
   }
 
   &__posters {
-
     display: flex;
     transition: transform 450ms;
     padding: 20px;
-    //overflow-x: scroll;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    //WIP
+    //overflow-x: scroll;
+    //overflow-y: hidden;
+
+    //&::-webkit-scrollbar {
+    //  display: none;
+    //}
   }
 
   &__poster {
 
     width: 100%;
-    object-fit: contain;
-    //max-height: 100px;
     cursor: pointer;
     border-radius: 4px;
     margin-right: 5px;
+    background-color: #141414;
 
-    //&:hover {
-    //  transform: scale(2);
-    //  z-index: 2;
-    //  background-color:#141414;
-    //}
+    &:hover {
+      transform: scale(2);
+      //using hover on parent element to change a class of a child element
+      //.movieInfo {
+      //  display: block;
+      //}
+    }
   }
 
   &__posterImg {
-
     object-fit: contain;
     max-height: 100px;
     cursor: pointer;
     border-radius: 4px;
 
+    //WIP
+    //&.changeBorderRadious {
+    //  border-radius: 4px 4px 0 0;
+    //}
+
   }
 
   &__posterLarge {
     max-height: 250px;
-
   }
-
- 
-
-
 }

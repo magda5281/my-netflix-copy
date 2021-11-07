@@ -3,16 +3,9 @@ import "./Row.scss"
 import {API_KEY} from "./api/constants";
 import MovieInfo from "./MovieInfo";
 
-
 const Row = ({title, movies, rowTitle}) => {
-    const [isShown, setIsShown] = useState(false);
-    const [hoveredMovie, setHoveredMovie] =useState({})
-    console.log(isShown)
-    console.log(hoveredMovie);
-    const handleMouseEnter = (e, movie)=>{
-    setHoveredMovie(movie)
-    setIsShown(true);
-    }
+
+    const [visibleId, setVisibleId] = useState("");
 
     return (
         <section className="rows">
@@ -21,22 +14,23 @@ const Row = ({title, movies, rowTitle}) => {
                     {title}
                 </h2>
                 <div className="row__posters">
-                    {movies.map((movie)=>{
-                        return <div key = {movie.id}
+                    {movies.map((movie) => {
+                        const id = movie.id;
+                        const className = id == visibleId ? "visible" : "hidden";
+                        return <div key={movie.id}
                                     className="row__poster"
-                                    onMouseEnter={(e) => handleMouseEnter(e, movie)}
-                                    onMouseLeave={() => setIsShown(false)}
-                                    >
-                                    <img className={`row__posterImg ${rowTitle ==="netflixOriginals" && "row__posterLarge"}`}
-                                         src={`https://image.tmdb.org/t/p/original${rowTitle ==="netflixOriginals" ? movie                                                      .poster_path : movie.backdrop_path}?=${API_KEY}`}
-                                         alt={movie.title}
-                                         id = {movie.id}
-                                    />
-                                </div>
-                    })}
-                    {hoveredMovie && isShown===true ? <MovieInfo movie={hoveredMovie}/> : null}
+                                    id={movie.id}
+                                    onMouseEnter={(e) => setVisibleId(e.currentTarget.id)}
+                                    onMouseLeave={() => setVisibleId("")}>
 
+                            <img className={`row__posterImg ${rowTitle === "netflixOriginals" && "row__posterLarge"}`}
+                                 src={`https://image.tmdb.org/t/p/original${rowTitle === "netflixOriginals" ? movie.poster_path : movie.backdrop_path}?=${API_KEY}`}
+                                 alt={movie.title || movie.original_title || movie.name}/>
+                            <MovieInfo movie={movie} className={className} id={id}/>
+                        </div>
+                    })}
                 </div>
+
             </div>
         </section>
     );

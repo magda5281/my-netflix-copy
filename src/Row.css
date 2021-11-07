@@ -12,15 +12,15 @@
   transition: transform 450ms;
   padding: 20px;
 }
-.row__posters::-webkit-scrollbar {
-  display: none;
-}
 .row__poster {
   width: 100%;
-  object-fit: contain;
   cursor: pointer;
   border-radius: 4px;
   margin-right: 5px;
+  background-color: #141414;
+}
+.row__poster:hover {
+  transform: scale(2);
 }
 .row__posterImg {
   object-fit: contain;
