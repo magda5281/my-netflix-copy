@@ -1,0 +1,57 @@
+
+.row {
+  margin-left: 20px;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: rgb(229, 229, 229);
+
+  &__title{
+    padding-top: 30px;
+  }
+
+  &__posters {
+
+    display: flex;
+    transition: transform 450ms;
+    padding: 20px;
+    //overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__poster {
+
+    width: 100%;
+    object-fit: contain;
+    //max-height: 100px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+
+    //&:hover {
+    //  transform: scale(2);
+    //  z-index: 2;
+    //  background-color:#141414;
+    //}
+  }
+
+  &__posterImg {
+
+    object-fit: contain;
+    max-height: 100px;
+    cursor: pointer;
+    border-radius: 4px;
+
+  }
+
+  &__posterLarge {
+    max-height: 250px;
+
+  }
+
+ 
+
+
+}
