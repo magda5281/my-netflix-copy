@@ -1,0 +1,28 @@
+.movieInfo {
+  border: 5px solid green;
+  padding: 10px;
+  background-color: #141414;
+  border-radius: 4px;
+  z-index: 1;
+}
+.movieInfo__IconsWrap {
+  display: flex;
+  align-items: center;
+}
+.movieInfo__title {
+  padding: 10px 0;
+  font-size: 0.7rem;
+}
+.movieInfo__rating {
+  color: green;
+  font-size: 0.8rem;
+  padding: 5px 0;
+}
+.movieInfo__overview {
+  font-size: 0.5rem;
+  color: white;
+  padding: 5px 0;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=MovieInfo.css.map */
