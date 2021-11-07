@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+.banner {
+  color: white;
+  object-fit: contain;
+  height: 448px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.banner--fadeBottom {
+  height: 7.4rem;
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+.banner__contents {
+  margin-left: 30px;
+  font-family: "Open Sans";
+  padding-top: 140px;
+}
+.banner__title {
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 2rem;
+}
+.banner__button {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.6rem 2.4rem 0.6rem 2rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  color: black;
+  transition: transform ease-in-out 0.3s;
+  font-weight: bold;
+}
+.banner__button--secondary {
+  color: white;
+  background-color: rgba(107, 103, 103, 0.5);
+}
+.banner__button:hover {
+  background-color: rgba(239, 239, 239, 0.6);
+}
+.banner__button--secondary:hover {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+.banner__description {
+  word-wrap: break-word;
+  width: 45rem;
+  line-height: 1.3rem;
+  font-weight: normal;
+  font-size: 0.8rem;
+  padding-top: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  max-width: 360px;
+  height: 80px;
+}
+
+/*# sourceMappingURL=Banner.css.map */
