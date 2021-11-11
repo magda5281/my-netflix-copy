@@ -1,0 +1,88 @@
+.signupScreen {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  font-family: "Open Sans";
+}
+.signupScreen__background {
+  background-image: url("../assets/sign in image backgr.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.signupScreen__gradient {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  background: linear-gradient to top rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%;
+}
+.signupScreen__header {
+  padding: 20px;
+  height: 100px;
+}
+.signupScreen__logo {
+  width: 150px;
+  height: 50px;
+  position: fixed;
+  left: 20px;
+  z-index: 2;
+  object-fit: contain;
+}
+.signupScreen__body {
+  display: flex;
+  padding: 150px 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.signupScreen__body h1 {
+  font-size: 3.125rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.signupScreen__body h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.signupScreen__body h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.signupScreen__container {
+  padding: 60px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.signupScreen__input {
+  font-weight: 400;
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+}
+.signupScreen__input form {
+  height: 60px;
+}
+.signupScreen__form input {
+  padding: 10px;
+  outline: 0;
+  border: none;
+  width: 40%;
+  max-width: 600px;
+  height: 100%;
+}
+.signupScreen__getStarted {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  padding: 11px 20px;
+  height: 100%;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=SignupScreen.css.map */
