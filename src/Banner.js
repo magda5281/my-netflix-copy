@@ -33,18 +33,14 @@ const Banner = ({movies}) => {
 
             <div className="banner__contents">
                 <h1 className="banner__title">{movie?.title || movie?.name || movie?.original_title}</h1>
-                <a href="">
                     <button className="banner__button">
                         <IconContext.Provider value={{className: "icon"}}><FaPlay/>
                         </IconContext.Provider>Play
                     </button>
-                </a>
-                <a href="">
                     <button className="banner__button banner__button--secondary">
                         <IconContext.Provider value={{className: "icon icon--info"}}><FaInfoCircle/>
                         </IconContext.Provider> Information
                     </button>
-                </a>
                 <p className="banner__description">{truncate(movie?.overview, 150)}</p>
             </div>
             <div className="banner--fadeBottom"/>
