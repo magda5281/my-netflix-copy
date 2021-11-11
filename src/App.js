@@ -1,21 +1,49 @@
-import "./reset.scss";
-import "./App.scss";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
+import React from "react";
 import {useState, useEffect} from "react";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+
+} from "react-router-dom";
+
 import {requests} from "./api/requests";
 import {API_KEY} from "./api/constants";
 
-import Row from "./Row.js";
-import Banner from "./Banner";
-import Nav from "./Nav";
+import Loader from "react-loader-spinner";
+import SignupScreen from "./screens/SignupScreen";
+import HomeScreen from "./screens/HomeScreen";
+import {auth} from "./firebase";
+import ProfileScreen from "./screens/ProfileScreen";
+
+import "./genericStyles/reset.scss";
+import "./genericStyles/fonts.scss";
+import "./App.scss";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import MyListScreen from "./screens/MyListScreen";
 
 function App() {
 
     const [loading, setLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     const [data, setData] = useState([]);
+    const [user, setUser] = useState(null);
+    const [email, setEmail] = useState("");
+
+    // listener to logged in or logged out state
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+            if (userAuth) {
+                setUser(userAuth);
+                setEmail(userAuth.email);
+
+            } else {
+                setUser("");
+                setEmail("");
+            }
+        });
+        return unsubscribe;
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -28,7 +56,6 @@ function App() {
                 })
         }))
             .then((newData) => {
-                // console.log(newData)
                 setData(newData);
             })
             .catch((err) => {
@@ -46,26 +73,30 @@ function App() {
             height={100}
             width={100}
             timeout={3000} //3 secs
-          />
+            margin="0 auto"
+        />
     }
-    //
-    // if (isError) {
-    //     return <Error />
-    // }
+
+    if (isError) {
+        return console.log("Error")
+        // <Error />
+    }
+
     return (
         <div className="App">
-            <Nav/>
-            {data.map((el) => {
-                return el.key === "trendingToday" && <Banner key={el.api} movies={el.data}/>
-            })}
-            <section className="rows">
-                {data.map((element) => {
-                    return element.key !== "trendingToday" &&
-                        <Row key={element.api} title={element.title} movies={element.data} rowTitle={element.key}/>
-                })}
-            </section>
+            <Router>
+                {!user ? (
+                    <SignupScreen/>
+                ) : (
+                    <Routes>
+                        <Route exact path="/" element={<HomeScreen data={data} user={user}/>}/>
+                        <Route exact path="/profile" element={<ProfileScreen email={email}/>}/>
+                        <Route exact path="/myList" element={<MyListScreen/>}/>
+                    </Routes>
+                )}
+            </Router>
         </div>
-    );
+    )
 }
 
 export default App;
