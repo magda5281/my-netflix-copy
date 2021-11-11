@@ -13,6 +13,8 @@
     display: flex;
     transition: transform 450ms;
     padding: 20px;
+  position: relative;
+
 
     //WIP
     //overflow-x: scroll;
@@ -25,14 +27,21 @@
 
   &__poster {
 
-    width: 100%;
+    //width: 100%;
     cursor: pointer;
     border-radius: 4px;
     margin-right: 5px;
     background-color: #141414;
+    transition: transform 300ms ease 100ms;
+
 
     &:hover {
-      transform: scale(2);
+      transform: scale(1.6);
+      z-index: 2;
+
+
+
+
       //using hover on parent element to change a class of a child element
       //.movieInfo {
       //  display: block;
@@ -56,4 +65,10 @@
   &__posterLarge {
     max-height: 250px;
   }
+
 }
+
+.imageHovered{
+  border-radius: 4px 4px 0 0;
+}
+

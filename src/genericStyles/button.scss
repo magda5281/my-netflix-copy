@@ -1,0 +1,48 @@
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: .1px;
+  border-radius: 2px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 0;
+  position: relative;
+  color: #000;
+  background-color: #e6e6e6;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+
+  &__submit {
+    color: white;
+    box-shadow: 0 1px 0 rgb(0 0 0 / 55%);
+  }
+
+  &__login {
+    background-color: #e50914;
+    padding: 16px;
+    width: 100%;
+    color: white;
+    margin: 24px 0 12px;
+    border-radius: 4px;
+    font-weight: 700;
+
+  }
+
+  &__signin--small {
+    color: white;
+    border-radius: 3px;
+    background-color: #e50914;
+    padding: 10px 20px;
+    font-weight: 400;
+    font-size: 1rem;
+    float: right;
+    margin-right: 20px;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

@@ -4,8 +4,8 @@
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 20px 10px 20px;
+  justify-content: flex-start;
+  padding: 20px;
   z-index: 1;
   transition: all ease-in 0.5s;
 }
@@ -21,12 +21,29 @@
   object-fit: contain;
   position: fixed;
   left: 20px;
+  cursor: pointer;
+}
+.nav__logoContainer {
+  width: 100px;
 }
 .nav__avatar {
   position: fixed;
   right: 20px;
   width: 30px;
   object-fit: contain;
+  cursor: pointer;
+}
+.nav__primary {
+  color: #e5e5e5;
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Open Sans";
+}
+.nav__tab {
+  padding: 6px 20px 0;
+  cursor: pointer;
+  font-size: 0.7rem;
+  letter-spacing: 0.4px;
 }
 
 /*# sourceMappingURL=Nav.css.map */

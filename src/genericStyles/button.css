@@ -1,0 +1,45 @@
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  border-radius: 2px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 0;
+  position: relative;
+  color: #000;
+  background-color: #e6e6e6;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.btn__submit {
+  color: white;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+}
+.btn__login {
+  background-color: #e50914;
+  padding: 16px;
+  width: 100%;
+  color: white;
+  margin: 24px 0 12px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.btn__signin--small {
+  color: white;
+  border-radius: 3px;
+  background-color: #e50914;
+  padding: 10px 20px;
+  font-weight: 400;
+  font-size: 1rem;
+  float: right;
+  margin-right: 20px;
+}
+.btn__signin--small:hover {
+  color: white;
+}
+
+/*# sourceMappingURL=button.css.map */

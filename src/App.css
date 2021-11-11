@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0 auto;
   font-family: "Open Sans";
+}
+
+body {
+  background-color: #141414;
+  width: 100%;
 }
 
 .App {
@@ -10,8 +14,6 @@
 }
 .App a {
   text-decoration: none;
-  background-color: transparent;
-  color: black;
 }
 .App .rows {
   margin-top: -20px;
