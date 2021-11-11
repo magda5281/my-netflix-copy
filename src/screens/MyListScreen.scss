@@ -1,0 +1,12 @@
+.myListScreen {
+  color: white;
+  &__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__poster{
+    margin-top: 100px;
+    color: white;
+    font-size: 100px;
+  }
+}

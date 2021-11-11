@@ -1,0 +1,14 @@
+.myListScreen {
+  color: white;
+}
+.myListScreen__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.myListScreen__poster {
+  margin-top: 100px;
+  color: white;
+  font-size: 100px;
+}
+
+/*# sourceMappingURL=MyListScreen.css.map */
