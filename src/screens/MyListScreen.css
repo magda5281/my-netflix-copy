@@ -1,14 +1,16 @@
 .myListScreen {
   color: white;
 }
+.myListScreen h1 {
+  font-size: 2rem;
+  color: white;
+  margin-top: 100px;
+}
 .myListScreen__wrapper {
-  display: flex;
   flex-wrap: wrap;
 }
 .myListScreen__poster {
-  margin-top: 100px;
-  color: white;
-  font-size: 100px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=MyListScreen.css.map */

@@ -1,34 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Nav from "../Nav";
 import "./MyListScreen.scss";
+import "../Row.scss"
+import {API_KEY} from "../api/constants";
+import MovieInfo from "../MovieInfo";
 
-const MyListScreen = () => {
+const MyListScreen = ({myList}) => {
 
+    const [visibleId, setVisibleId] = useState("");
+    const showPar = false;
     return (
-        <section className="myListScreen">
+        <>
             <Nav/>
-            <div className="myListScreen__wrapper">
-                <div className="myListScreen__poster">
-                    Movie
+            <section className="myListScreen row">
+                <h1>My List</h1>
+                <div className="myListScreen__wrapper row__posters">
+                    {myList.map((item) => {
+                        console.log(item)
+                        const id = item.id;
+                        const className = id == visibleId ? "visible" : "hidden";
+                        return <div key={item.id}
+                                    className=" myListScreen__poster row__poster"
+                                    id={item.id}
+                                    onMouseEnter={(e) => setVisibleId(e.currentTarget.id)}
+                                    onMouseLeave={() => setVisibleId("")}>
+
+                            <img className={`row__posterImg ${id == visibleId && "imageHovered"}`}
+                                 src={`https://image.tmdb.org/t/p/original${item.backdrop_path}?=${API_KEY}}`}
+                                 alt={item.title || item.original_title || item.name}/>
+                            <MovieInfo movie={item} className={className} id={id} showPar={showPar}/>
+                        </div>
+                    })}
                 </div>
-                <div className="myListScreen__poster">
-                    Movie
-                </div>
-                <div className="myListScreen__poster">
-                    Movie
-                </div>
-                <div className="myListScreen__poster">
-                    Movie
-                </div>
-                <div className="myListScreen__poster">
-                    Movie
-                </div>
-                <div className="myListScreen__poster">
-                    Movie
-                </div>
-            </div>
-        </section>
-    );
-};
+            </section>
+        </>
+
+    )
+}
 
 export default MyListScreen;
