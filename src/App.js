@@ -14,6 +14,7 @@ import Loader from "react-loader-spinner";
 import SignupScreen from "./screens/SignupScreen";
 import HomeScreen from "./screens/HomeScreen";
 import {auth} from "./firebase";
+import db from "./firebase";
 import ProfileScreen from "./screens/ProfileScreen";
 
 import "./genericStyles/reset.scss";
@@ -29,13 +30,24 @@ function App() {
     const [data, setData] = useState([]);
     const [user, setUser] = useState(null);
     const [email, setEmail] = useState("");
-
+    const [myList,setMyList]=useState([]);
+console.log(myList)
     // listener to logged in or logged out state
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((userAuth) => {
             if (userAuth) {
+                // console.log(userAuth)
                 setUser(userAuth);
                 setEmail(userAuth.email);
+                db.collection('users').doc(userAuth.uid)
+                    .onSnapshot((doc)=>{
+                   if (doc.exists) {
+                       setMyList(doc.data().favourites);
+                   } else {
+                       // doc.data() will be undefined in this case
+                       console.log("No such document!");
+                   }
+                })
 
             } else {
                 setUser("");
@@ -91,7 +103,7 @@ function App() {
                     <Routes>
                         <Route exact path="/" element={<HomeScreen data={data} user={user}/>}/>
                         <Route exact path="/profile" element={<ProfileScreen email={email}/>}/>
-                        <Route exact path="/myList" element={<MyListScreen/>}/>
+                        <Route exact path="/myList" element={<MyListScreen myList={myList}/>}/>
                     </Routes>
                 )}
             </Router>
