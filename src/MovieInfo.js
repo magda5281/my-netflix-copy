@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./MovieInfo.scss";
 import "./genericStyles/icon.scss";
 import {FaPlayCircle, FaPlusCircle, FaThumbsUp, FaThumbsDown, FaChevronCircleDown} from "react-icons/fa";
 import {IconContext} from "react-icons";
 
-const MovieInfo = ({movie, className, handleAddToList, id}) => {
+const MovieInfo = ({movie, className, handleAddToList, id, showPar}) => {
 
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
+
 
     const handleClick = (e) => {
         handleAddToList(e.target.id, movie);
@@ -37,9 +38,9 @@ const MovieInfo = ({movie, className, handleAddToList, id}) => {
                 {movie?.title || movie?.name || movie?.original_title}
             </h4>
             <div className="movieInfo__rating">Average rating: {movie?.vote_average}</div>
-            <p className="movieInfo__overview">
+            {(showPar) && <p className="movieInfo__overview">
                 {truncate(movie.overview, 100)}
-            </p>
+            </p>}
         </div>
     );
 };

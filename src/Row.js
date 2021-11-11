@@ -8,9 +8,8 @@ import "./genericStyles/icon.scss";
 import firebase from "firebase";
 
 const Row = ({title, movies, rowTitle, user}) => {
-
     const [visibleId, setVisibleId] = useState("");
-
+    const showPar = true;
     const handleAddToList = (clickedId, movie) => {
         if (clickedId == visibleId) {
             db.collection("users").doc(user.uid).update({
@@ -42,7 +41,7 @@ const Row = ({title, movies, rowTitle, user}) => {
                     ${id == visibleId && "imageHovered"}`}
                                  src={`https://image.tmdb.org/t/p/original${rowTitle === "netflixOriginals" ? movie.poster_path : movie.backdrop_path}?=${API_KEY}}`}
                                  alt={movie.title || movie.original_title || movie.name}/>
-                            <MovieInfo movie={movie} className={className} id={id} handleAddToList={handleAddToList}/>
+                            <MovieInfo movie={movie} className={className} id={id} handleAddToList={handleAddToList} showPar={showPar}/>
                         </div>
                     })}
                 </div>

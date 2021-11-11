@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import "./Nav.scss";
-import MyListScreen from "./screens/MyListScreen";
 
 const Nav = () => {
     const [showSolidNav, handleShowSolidNav] = useState(false);
