@@ -1,24 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./MovieInfo.scss";
-import "./icon.scss";
+import "./genericStyles/icon.scss";
 import {FaPlayCircle, FaPlusCircle, FaThumbsUp, FaThumbsDown, FaChevronCircleDown} from "react-icons/fa";
 import {IconContext} from "react-icons";
 
-const MovieInfo = ({movie, className}) => {
-    console.log(className)
+const MovieInfo = ({movie, className, handleAddToList, id}) => {
 
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
 
+    const handleClick = (e) => {
+        handleAddToList(e.target.id, movie);
+    }
+
     return (
-        <div className={`movieInfo ${className}`}>
+        <div className={`movieInfo ${className}`} id={`${id}`}>
 
             <div className="movieInfo__IconsWrap">
                 <div className="movieInfo__left">
                     <IconContext.Provider value={{className: "icon icon--movieInfo"}}><FaPlayCircle/>
                     </IconContext.Provider>
-                    <IconContext.Provider value={{className: "icon icon--movieInfo"}}><FaPlusCircle/>
+                    <IconContext.Provider value={{className: "icon icon--movieInfo"}}><FaPlusCircle id={`${id}`}
+                                                                                                    onClick={(e) => handleClick(e)}/>
                     </IconContext.Provider>
                     <IconContext.Provider value={{className: "icon icon--movieInfo"}}><FaThumbsUp/>
                     </IconContext.Provider>
@@ -37,7 +41,6 @@ const MovieInfo = ({movie, className}) => {
                 {truncate(movie.overview, 100)}
             </p>
         </div>
-
     );
 };
 
