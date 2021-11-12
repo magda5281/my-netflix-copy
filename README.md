@@ -1,3 +1,7 @@
+Project includes: HTML, SCSS, JavaScript, React, Firebase (auth and data).
+It is ongoing project and code review is greatly appreciated. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
