@@ -85,6 +85,19 @@ const HomeScreen = ({ user }) => {
           );
         })}
       </section>
+      <footer
+        style={{
+          textAlign: 'center',
+          padding: '10px',
+          color: 'white',
+          fontSize: '12px',
+        }}
+      >
+        <p>
+          This project is a <strong>non-commercial, educational project</strong>{' '}
+          created for learning purposes. It is not affiliated with Netflix, Inc.
+        </p>
+      </footer>
     </>
   );
 };

@@ -1,4 +1,4 @@
-# My Netflix Copy
+# My Netflix Copy - Educational Project
 
 ### CodersLab JavaScript Developer Bootcamp Final Project
 
@@ -7,6 +7,7 @@ This project is a web application that mimics some of Netflix's features, built 
 ## 🔗 Links
 
 - [Live Project](https://my-netflix-copy.web.app/)
+
 - [GitHub Repository](https://github.com/magda5281/my-netflix-app)
 
 ## 🚀 Features
