@@ -17,7 +17,6 @@ const HomeScreen = ({ user }) => {
           const response = await fetch(request.api, {
             headers: { Authorization: process.env.REACT_APP_API_KEY },
           });
-          console.log('response', response);
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
