@@ -47,7 +47,7 @@ const Row = ({ title, movies, rowTitle, user }) => {
                     rowTitle === 'netflixOriginals'
                       ? movie.poster_path
                       : movie.backdrop_path
-                  }?=${process.env.API_KEY}}`}
+                  }?=${process.env.REACT_APP_API_KEY}}`}
                   alt={movie.title || movie.original_title || movie.name}
                 />
                 <MovieInfo

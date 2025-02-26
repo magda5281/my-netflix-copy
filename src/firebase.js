@@ -1,10 +1,9 @@
 import firebase from 'firebase/app';
-import 'firebase/analytics';
-import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/analytics'; // Import analytics correctly
 
 const firebaseConfig = {
-  // wasze ustawienia
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
@@ -13,11 +12,11 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
+// Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
+const analytics = firebase.analytics(); // ✅ Correct way for Firebase v8
 
-export { auth };
+export { auth, analytics };
 export default db;
-
-firebase.analytics();

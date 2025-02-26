@@ -29,7 +29,7 @@ const MyListScreen = ({ myList }) => {
                   className={`row__posterImg ${
                     id === visibleId && 'imageHovered'
                   }`}
-                  src={`https://image.tmdb.org/t/p/original${item.backdrop_path}?=${process.env.API_KEY}}`}
+                  src={`https://image.tmdb.org/t/p/original${item.backdrop_path}?=${process.env.REACT_APP_API_KEY}}`}
                   alt={item.title || item.original_title || item.name}
                 />
                 <MovieInfo
