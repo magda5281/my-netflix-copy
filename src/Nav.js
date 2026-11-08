@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Nav.scss';
 import movieBoardIcon from '../src/assets/icons8-movie-projector.png';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Nav = () => {
   const [showSolidNav, handleShowSolidNav] = useState(false);
@@ -20,7 +21,7 @@ const Nav = () => {
       <div className='nav__logoContainer'>
         <img
           src={movieBoardIcon}
-          alt='Movie app logo '
+          alt='Reelbox logo'
           className='nav__logo'
           onClick={() => navigate('/')}
         />
@@ -35,10 +36,11 @@ const Nav = () => {
         </li>
       </ul>
       <div>
-        <img
-          src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'
-          alt=' avatar '
+        <FaUserCircle
+          aria-label='Profile'
           className='nav__avatar'
+          color='white'
+          size={30}
           onClick={() => navigate('/profile')}
         />
       </div>

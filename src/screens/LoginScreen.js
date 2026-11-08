@@ -31,7 +31,7 @@ const LoginScreen = () => {
           });
       })
       .then(() => {
-        alert('Your Netflix account has been created.');
+        alert('Your Reelbox demo account has been created.');
       })
       .catch((error) => {
         alert(error.message);
@@ -104,7 +104,7 @@ const LoginScreen = () => {
               </button>
               <h4>
                 <span className='loginScreen__signup__now'>
-                  New to Netflix?{' '}
+                  New to Reelbox?{' '}
                 </span>
                 <a href='/' className='loginScreen__link' onClick={register}>
                   Sign up now
@@ -116,10 +116,9 @@ const LoginScreen = () => {
             <div className='loginScreen__termsOfUse'>
               <p>
                 <span>
-                  This page is protected by Google reCAPTCHA to ensure you're
-                  not a bot.
+                  Reelbox is a student portfolio demo. Please use a test email
+                  and a password you don't use anywhere else.
                 </span>
-                <button>Learn more.</button>
               </p>
             </div>
           </div>
@@ -133,8 +132,7 @@ const LoginScreen = () => {
           marginTop: '10px',
         }}
       >
-        This project is for educational purposes only and is not associated with
-        Netflix.
+        Reelbox is an independent, non-commercial educational project.
       </p>
     </section>
   );

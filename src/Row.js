@@ -40,14 +40,14 @@ const Row = ({ title, movies, rowTitle, user }) => {
               >
                 <img
                   className={`row__posterImg ${
-                    rowTitle === 'netflixOriginals' && 'row__posterLarge'
+                    rowTitle === 'originals' && 'row__posterLarge'
                   }
                     ${id === visibleId && 'imageHovered'}`}
                   src={`https://image.tmdb.org/t/p/original${
-                    rowTitle === 'netflixOriginals'
+                    rowTitle === 'originals'
                       ? movie.poster_path
                       : movie.backdrop_path
-                  }?=${process.env.REACT_APP_API_KEY}}`}
+                  }`}
                   alt={movie.title || movie.original_title || movie.name}
                 />
                 <MovieInfo

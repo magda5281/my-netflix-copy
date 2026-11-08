@@ -1,8 +1,8 @@
 export const requests = [
   {
     api: `${process.env.REACT_APP_base_URL}/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&with_networks=213`,
-    key: 'netflixOriginals',
-    title: 'NETFLIX ORIGINALS',
+    key: 'originals',
+    title: 'Streaming originals',
   },
   {
     api: `${process.env.REACT_APP_base_URL}/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`,

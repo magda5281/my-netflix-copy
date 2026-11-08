@@ -102,4 +102,13 @@
     cursor: pointer;
   }
 
+
+  &__demoNotice {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 14px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 0.95rem;
+  }
 }
