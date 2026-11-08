@@ -13,8 +13,8 @@ Reelbox is a streaming-service-style web app for browsing films and series and s
 ## 🚀 Features
 
 - Browse and search for movies and TV shows
-- Simple sign-up with email
-- User authentication with Firebase
+- One-click guest login (Firebase Anonymous Authentication), with no email or personal data collected
+- Save favourites to "My List" (Cloud Firestore, per guest user)
 - Responsive design for various screen sizes
 - Styled using Sass for modular and maintainable styles
 - Interactive UI using React components
@@ -45,8 +45,19 @@ Reelbox is a streaming-service-style web app for browsing films and series and s
 ### 3. Set up Firebase
 
 - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-- Enable Authentication (Email/Password, Google Sign-In, etc.)
-- Enable Firestore Database (if needed for user data)
+- Enable Authentication → **Anonymous** sign-in
+- Create a Firestore Database and publish these rules (each user can only access their own document):
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
 - Update `firebaseConfig` in your project
 
 ### 4. Add environment variables
@@ -80,7 +91,8 @@ REACT_APP_FIREBASE_APP_ID=...
 
 - **React.js**: Component-based architecture for building UI
 - **JavaScript**: Functional programming and ES6+ features
-- **Firebase**: Authentication & hosting for seamless deployment
+- **Firebase**: Anonymous authentication, Firestore security rules & hosting
+- **Privacy by design**: originally built with email/password auth, later switched to guest login so no personal data is stored
 - **Sass**: Modular and maintainable styles
 - **API Integration**: Fetching movie data from TMDb
 
