@@ -52,7 +52,10 @@ function App() {
           <SignupScreen />
         ) : (
           <Routes>
-            <Route exact path='/' element={<HomeScreen user={user} />} />
+            <Route path='/' element={<HomeScreen user={user} tab='home' />} />
+            <Route path='/tv' element={<HomeScreen user={user} tab='tv' />} />
+            <Route path='/movies' element={<HomeScreen user={user} tab='movies' />} />
+            <Route path='/new' element={<HomeScreen user={user} tab='new' />} />
             <Route
               exact
               path='/profile'

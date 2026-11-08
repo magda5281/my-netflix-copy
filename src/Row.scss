@@ -29,6 +29,7 @@
   &__poster {
 
     //width: 100%;
+    position: relative; // the hover info panel is positioned relative to this box
     cursor: pointer;
     border-radius: 4px;
     margin-right: 5px;

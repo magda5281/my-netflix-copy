@@ -1,4 +1,12 @@
 .movieInfo {
+  // Float the panel just below the poster instead of taking up space in the row.
+  // In normal flow it made the whole row taller on hover, so everything jumped.
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 
   padding: 10px;
   background-color: #141414;
@@ -17,6 +25,20 @@
   &__IconsWrap {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+  }
+
+  &__iconBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+    line-height: 0;
+
+    &:hover {
+      color: #b3b3b3;
+    }
   }
 
   &__title {

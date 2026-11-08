@@ -45,10 +45,22 @@
 
   }
   &__tab{
+    display: inline-block;
     padding: 6px 20px 0;
     cursor: pointer;
     font-size: 0.7rem;
     letter-spacing: 0.4px;
+    color: #e5e5e5;
+    text-decoration: none;
+    transition: color 0.3s;
 
+    &:hover {
+      color: #b3b3b3;
+    }
+
+    &--active {
+      color: white;
+      font-weight: 700;
+    }
   }
 }

@@ -1,50 +1,51 @@
-import React, {useEffect, useState} from 'react';
-import "./Banner.scss";
-import "./genericStyles/icon.scss";
+import React, { useEffect, useState } from 'react';
+import './Banner.scss';
+import './genericStyles/icon.scss';
 
-import {FaInfoCircle, FaPlay} from "react-icons/fa";
-import {IconContext} from "react-icons";
+import { FaInfoCircle } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 
-const Banner = ({movies}) => {
+const Banner = ({ movies, onShowDetails }) => {
+  const [movie, setMovie] = useState(null);
 
-    const [movie, setMovie] = useState([]);
-    useEffect(() => {
-        //biore array movies i wybieram jeden obiekt z tablicy movies ustawiajac index na random number ;length - 1
-        // jest po to aby nie przekroczyc dlugosci tablicy
-        setMovie(
-            movies[Math.floor(Math.random() * movies.length - 1)]
-        )
-    }, [movies]);
+  useEffect(() => {
+    // Pick a random title for the header. (The old formula, random * length - 1,
+    // could return -1 and leave the banner empty.)
+    const withImages = movies.filter((m) => m.backdrop_path);
+    setMovie(withImages[Math.floor(Math.random() * withImages.length)] || null);
+  }, [movies]);
 
-    // it hides the text if it is over number of caracters you specified ; you call that function from an element ,
-    // so you use your text overview as first argument and add another argument as a number
-    function truncate(str, n) {
-        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-    }
+  // Shortens the description to n characters and adds "..."
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + '...' : str;
+  }
 
-    return (
-        <header className="banner"
-                style={{
-                    backgroundSize: "cover",
-                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`, //? jest po to by
-                    // powiedziec ze jezeli movie jest undefined to zeby app not crushed, it is optional chaining
-                    // backgroundPosition: "center center",
-                }}>
-
-            <div className="banner__contents">
-                <h1 className="banner__title">{movie?.title || movie?.name || movie?.original_title}</h1>
-                    <button className="banner__button">
-                        <IconContext.Provider value={{className: "icon"}}><FaPlay/>
-                        </IconContext.Provider>Play
-                    </button>
-                    <button className="banner__button banner__button--secondary">
-                        <IconContext.Provider value={{className: "icon icon--info"}}><FaInfoCircle/>
-                        </IconContext.Provider> Information
-                    </button>
-                <p className="banner__description">{truncate(movie?.overview, 150)}</p>
-            </div>
-            <div className="banner--fadeBottom"/>
-        </header>
-    );
+  return (
+    <header
+      className='banner'
+      style={{
+        backgroundSize: 'cover',
+        backgroundImage: movie
+          ? `url("https://image.tmdb.org/t/p/original${movie.backdrop_path}")`
+          : 'none',
+      }}
+    >
+      <div className='banner__contents'>
+        <h1 className='banner__title'>
+          {movie?.title || movie?.name || movie?.original_title}
+        </h1>
+        {movie && (
+          <button className='banner__button' onClick={() => onShowDetails(movie)}>
+            <IconContext.Provider value={{ className: 'icon' }}>
+              <FaInfoCircle />
+            </IconContext.Provider>
+            More info
+          </button>
+        )}
+        <p className='banner__description'>{truncate(movie?.overview, 150)}</p>
+      </div>
+      <div className='banner--fadeBottom' />
+    </header>
+  );
 };
 export default Banner;

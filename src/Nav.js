@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Nav.scss';
 import movieBoardIcon from '../src/assets/icons8-movie-projector.png';
 import { FaUserCircle } from 'react-icons/fa';
 
+const tabs = [
+  { to: '/', label: 'Main page' },
+  { to: '/tv', label: 'Series and TV' },
+  { to: '/movies', label: 'Movies' },
+  { to: '/new', label: 'New' },
+  { to: '/myList', label: 'My list' },
+];
+
 const Nav = () => {
-  const [showSolidNav, handleShowSolidNav] = useState(false);
+  const [showSolidNav, setShowSolidNav] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        handleShowSolidNav(true);
-      } else handleShowSolidNav(false);
-    });
-    return window.removeEventListener('scroll', handleShowSolidNav(false));
+    const onScroll = () => setShowSolidNav(window.scrollY > 100);
+    window.addEventListener('scroll', onScroll);
+    // Remove the listener when the nav unmounts (the old code never did).
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
   return (
     <nav className={`nav ${showSolidNav ? 'nav__solid' : 'nav__faded'}`}>
       <div className='nav__logoContainer'>
@@ -27,13 +34,18 @@ const Nav = () => {
         />
       </div>
       <ul className='nav__primary'>
-        <li className='nav__tab'>Main page</li>
-        <li className='nav__tab'>Series and Tv</li>
-        <li className='nav__tab'>Movies</li>
-        <li className='nav__tab'>New</li>
-        <li className='nav__tab' onClick={() => navigate('/myList')}>
-          My list
-        </li>
+        {tabs.map((tab) => (
+          <li key={tab.to}>
+            {/* NavLink adds the "active" class to the tab for the current page */}
+            <NavLink
+              to={tab.to}
+              end
+              className={({ isActive }) => `nav__tab ${isActive ? 'nav__tab--active' : ''}`}
+            >
+              {tab.label}
+            </NavLink>
+          </li>
+        ))}
       </ul>
       <div>
         <FaUserCircle

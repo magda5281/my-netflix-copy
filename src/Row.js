@@ -1,61 +1,45 @@
 import React, { useState } from 'react';
-import db from './firebase';
-
 import MovieInfo from './MovieInfo';
+import { addToList } from './myList';
 import './Row.scss';
 import './genericStyles/icon.scss';
-import firebase from 'firebase';
 
-const Row = ({ title, movies, rowTitle, user }) => {
-  const [visibleId, setVisibleId] = useState('');
-  const showPar = true;
-  const handleAddToList = (clickedId, movie) => {
-    if (clickedId === visibleId) {
-      db.collection('users')
-        .doc(user.uid)
-        .update({
-          favourites: firebase.firestore.FieldValue.arrayUnion(movie),
-        })
-        .then(() => {
-          console.log('added');
-        });
-    }
-  };
+const Row = ({ title, movies, large, onShowDetails }) => {
+  // ID of the poster the mouse is over. Kept as the movie's own id (a number);
+  // the old code read it back from the page as text, so "123" never equalled 123
+  // and the info panel never appeared.
+  const [hoveredId, setHoveredId] = useState(null);
 
   return (
     <section className='rows' style={{ position: 'relative' }}>
       <div className='row'>
         <h2 className='row__title'>{title}</h2>
-        <div className='row__posters '>
+        <div className='row__posters'>
           {movies.map((movie) => {
-            const id = movie.id;
-            const className = id === visibleId ? 'visible' : 'hidden';
+            const isHovered = movie.id === hoveredId;
+            const image = large ? movie.poster_path : movie.backdrop_path;
+            if (!image) return null;
             return (
               <div
                 key={movie.id}
                 className='row__poster'
-                id={movie.id}
-                onMouseEnter={(e) => setVisibleId(e.currentTarget.id)}
-                onMouseLeave={() => setVisibleId('')}
+                onMouseEnter={() => setHoveredId(movie.id)}
+                onMouseLeave={() => setHoveredId(null)}
               >
                 <img
-                  className={`row__posterImg ${
-                    rowTitle === 'originals' && 'row__posterLarge'
-                  }
-                    ${id === visibleId && 'imageHovered'}`}
-                  src={`https://image.tmdb.org/t/p/original${
-                    rowTitle === 'originals'
-                      ? movie.poster_path
-                      : movie.backdrop_path
+                  className={`row__posterImg ${large ? 'row__posterLarge' : ''} ${
+                    isHovered ? 'imageHovered' : ''
                   }`}
+                  src={`https://image.tmdb.org/t/p/w500${image}`}
                   alt={movie.title || movie.original_title || movie.name}
+                  onClick={() => onShowDetails(movie)}
                 />
                 <MovieInfo
                   movie={movie}
-                  className={className}
-                  id={id}
-                  handleAddToList={handleAddToList}
-                  showPar={showPar}
+                  className={isHovered ? 'visible' : 'hidden'}
+                  onAdd={addToList}
+                  onShowDetails={onShowDetails}
+                  showPar={true}
                 />
               </div>
             );
