@@ -15,7 +15,7 @@ const SignupScreen = () => {
           <header className='signupScreen__header '>
             <img
               src={movieBoardIcon}
-              alt='Movie app Logo'
+              alt='Reelbox logo'
               className='signupScreen__logo'
             />
             {!signIn && (
@@ -34,14 +34,18 @@ const SignupScreen = () => {
               <div className='signupScreen__container'>
                 <div className='signupScreen__main'>
                   <h1 className='signupScreen__title'>
-                    Unlimited films, TV <br />
-                    programmes and more.
+                    Reelbox <br />
+                    discover what to watch next.
                   </h1>
-                  <h2>Watch anywhere. Cancel at any time.</h2>
+                  <h2>Browse trending films and series, and save your favourites.</h2>
                   <h3>
-                    Ready to watch? Enter your email to create or restart your
-                    membership.
+                    A portfolio demo built with React and Firebase. Movie data
+                    from TMDB.
                   </h3>
+                  <p className='signupScreen__demoNotice'>
+                    Demo project: please use a test email and a password you
+                    don't use anywhere else.
+                  </p>
                   <div className='signupScreen__input'>
                     <form action='' className='signupScreen__form'>
                       <label htmlFor='email' className='login__inputLabel'>
@@ -67,7 +71,6 @@ const SignupScreen = () => {
               </div>
             </div>
           )}
-          ;
         </div>
       </div>
     </section>

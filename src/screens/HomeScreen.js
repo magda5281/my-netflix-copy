@@ -14,9 +14,7 @@ const HomeScreen = ({ user }) => {
     try {
       const newData = await Promise.all(
         requests.map(async (request) => {
-          const response = await fetch(request.api, {
-            headers: { Authorization: process.env.REACT_APP_API_KEY },
-          });
+          const response = await fetch(request.api);
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
@@ -95,7 +93,7 @@ const HomeScreen = ({ user }) => {
       >
         <p>
           This project is a <strong>non-commercial, educational project</strong>{' '}
-          created for learning purposes. It is not affiliated with Netflix, Inc.
+          created for learning purposes.
         </p>
       </footer>
     </>

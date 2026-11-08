@@ -1,14 +1,14 @@
-# My Netflix Copy - Educational Project
+# Reelbox: Movie Browsing App (Educational Project)
 
 ### CodersLab JavaScript Developer Bootcamp Final Project
 
-This project is a web application that mimics some of Netflix's features, built as part of the **CodersLab JavaScript Developer Bootcamp** final project.
+Reelbox is a streaming-service-style web app for browsing films and series and saving favourites, built as part of the **CodersLab JavaScript Developer Bootcamp** final project.
 
 ## 🔗 Links
 
 - [Live Project](https://my-netflix-copy.web.app/)
 
-- [GitHub Repository](https://github.com/magda5281/my-netflix-app)
+- [GitHub Repository](https://github.com/magda5281/my-netflix-copy)
 
 ## 🚀 Features
 
@@ -32,8 +32,8 @@ This project is a web application that mimics some of Netflix's features, built 
 ### 1. Clone the repository
 
 ```sh
- git clone https://github.com/magda5281/my-netflix-app.git
- cd my-netflix-app
+ git clone https://github.com/magda5281/my-netflix-copy.git
+ cd my-netflix-copy
 ```
 
 ### 2. Install dependencies
@@ -49,13 +49,28 @@ This project is a web application that mimics some of Netflix's features, built 
 - Enable Firestore Database (if needed for user data)
 - Update `firebaseConfig` in your project
 
-### 4. Start the development server
+### 4. Add environment variables
+
+Create a `.env` file in the project root (it is git-ignored, so keys never get committed):
+
+```sh
+REACT_APP_API_KEY=your_tmdb_api_key
+REACT_APP_base_URL=https://api.themoviedb.org/3
+REACT_APP_FIREBASE_API_KEY=...
+REACT_APP_FIREBASE_AUTH_DOMAIN=...
+REACT_APP_FIREBASE_PROJECT_ID=...
+REACT_APP_FIREBASE_STORAGE_BUCKET=...
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=...
+REACT_APP_FIREBASE_APP_ID=...
+```
+
+### 5. Start the development server
 
 ```sh
  npm start
 ```
 
-### 5. Deploy to Firebase (Optional)
+### 6. Deploy to Firebase (Optional)
 
 ```sh
  firebase deploy
@@ -68,5 +83,9 @@ This project is a web application that mimics some of Netflix's features, built 
 - **Firebase**: Authentication & hosting for seamless deployment
 - **Sass**: Modular and maintainable styles
 - **API Integration**: Fetching movie data from TMDb
+
+## ⚠️ Disclaimer
+
+This is a non-commercial student project. It is not affiliated with or endorsed by any streaming service. Movie data and images are provided by [TMDB](https://www.themoviedb.org/); this product uses the TMDB API but is not endorsed or certified by TMDB.
 
 📌 **Author**: Magda Gozdalik

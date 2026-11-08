@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from "../Nav";
 import "./ProfileScreen.scss"
 import {auth} from "../firebase.js";
+import {FaUserCircle} from "react-icons/fa";
 
 const ProfileScreen = ({email}) => {
     return (
@@ -10,8 +11,7 @@ const ProfileScreen = ({email}) => {
             <div className="profileScreen__body">
                 <h1>Edit Profile</h1>
                 <div className="profileScreen__info">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-                         alt="Netflix avatar"/>
+                    <FaUserCircle aria-label="Profile picture" color="white" size={100}/>
                     <div className="profileScreen__details">
                         <h2>{email}</h2>
                         <div className="profileScreen__plans">
