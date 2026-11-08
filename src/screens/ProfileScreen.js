@@ -9,16 +9,16 @@ const ProfileScreen = ({email}) => {
         <section className="profileScreen">
             <Nav/>
             <div className="profileScreen__body">
-                <h1>Edit Profile</h1>
+                <h1>Profile</h1>
                 <div className="profileScreen__info">
                     <FaUserCircle aria-label="Profile picture" color="white" size={100}/>
                     <div className="profileScreen__details">
-                        <h2>{email}</h2>
+                        <h2>{email || 'Guest'}</h2>
                         <div className="profileScreen__plans">
-                            <h3>Plans</h3>
+                            <p>You're browsing as a guest. Leaving the demo clears your list.</p>
                             <button
                                 onClick={() => auth.signOut()}
-                                className="profileScreen__signOut">Sign Out
+                                className="profileScreen__signOut">Leave demo
                             </button>
                         </div>
                     </div>

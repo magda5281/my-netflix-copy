@@ -20,26 +20,29 @@ function App() {
   const [myList, setMyList] = useState([]);
 
   useEffect(() => {
+    let stopListeningToList = () => {};
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      stopListeningToList();
       if (userAuth) {
         setUser(userAuth);
         setEmail(userAuth.email);
-        db.collection('users')
-          .doc(userAuth.uid)
-          .onSnapshot((doc) => {
-            if (doc.exists) {
-              setMyList(doc.data().favourites);
-            } else {
-              // doc.data() will be undefined in this case
-              console.log('No such document!');
-            }
-          });
+        const userDoc = db.collection('users').doc(userAuth.uid);
+        // First visit as a guest: create this user's document so "My List" can be saved.
+        // merge: true keeps any favourites already saved for this user.
+        userDoc.set({ userId: userAuth.uid }, { merge: true });
+        stopListeningToList = userDoc.onSnapshot((doc) => {
+          setMyList((doc.exists && doc.data().favourites) || []);
+        });
       } else {
         setUser('');
         setEmail('');
+        setMyList([]);
       }
     });
-    return unsubscribe;
+    return () => {
+      stopListeningToList();
+      unsubscribe();
+    };
   }, []);
 
   return (

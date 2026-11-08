@@ -8,9 +8,8 @@
 
 
   &__background{
-    background-image: url("../assets/sign in image backgr.jpg");
-    background-size: cover;
-    background-position: center;
+    // Plain gradient background (the old image was third-party branded artwork)
+    background: radial-gradient(ellipse at top, #3a1c4d 0%, #141414 60%, #000 100%);
   }
 
   &__gradient{
@@ -103,8 +102,21 @@
   }
 
 
+  &__getStarted:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  &__error {
+    margin-top: 15px;
+    color: #ffb3b3;
+  }
+
   &__demoNotice {
-    display: inline-block;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
     margin-bottom: 20px;
     padding: 8px 14px;
     border-radius: 4px;
